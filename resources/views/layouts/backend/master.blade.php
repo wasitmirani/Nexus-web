@@ -6,7 +6,7 @@
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-   
+
 
        <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -17,6 +17,8 @@
 
       <link rel="stylesheet" href="{{asset('/backend/assets/css/backend-plugin.min-1.css')}}">
       <link rel="stylesheet" href="{{asset('/backend/assets/css/backend-1.css?v=1.0.0')}}">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     </head>
   <body class="  ">
     <!-- loader Start -->
@@ -43,13 +45,13 @@
               </div>
           </div>
           <div class="data-scrollbar" data-scroll="1">
-                @include('layouts.backend.sidemenu')
+                @include('layouts.backend.components.sidemenu')
               <div class="pt-5 pb-5"></div>
           </div>
       </div>
        <div class="iq-top-navbar">
           <div class="iq-navbar-custom">
-            @include('layouts.backend.navbar')
+            @include('layouts.backend.components.navbar')
           </div>
       </div>
       <div class="content-page">
@@ -62,7 +64,7 @@
     <!-- Wrapper End-->
     </div>
 
-    @include('layouts.backend.footer')
+    @include('layouts.backend.components.footer')
     <!-- Backend Bundle JavaScript -->
     <script src="{{ asset('/backend/assets/js/backend-bundle.min-1.js')}}"></script>
     <!-- Chart Custom JavaScript -->
