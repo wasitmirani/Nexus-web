@@ -10,19 +10,19 @@ window.Vue = require('vue').default;
 import router from "./router";
 import VueProgressBar from 'vue-progressbar'
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 
 
-Vue.use(VueProgressBar, {
-    color: 'rgb(143, 255, 199)',
-    failedColor: 'red',
-    height: '4px'
-})
+// Vue.use(VueProgressBar, {
+//     color: 'rgb(143, 255, 199)',
+//     failedColor: 'red',
+//     height: '4px'
+// })
 const app = new Vue({
     el: '#app',
-    router,
+    // router,
     created() {
         this.$Progress.start()
         this.$router.beforeEach((to, from, next) => {

@@ -10,10 +10,11 @@ function setComponent(path_file) {
 
 const routes = [
     // { path: "*", component: () => setComponent("error/404") },
-    // {
-    //     path: "/",
-    //     redirect: { path: '/seller/dashboard' }
-    // },
+    {
+        path: "/",
+        component: () => setComponent("home/Dashboard")
+            // redirect: { path: '/' }
+    },
 ];
 
 const router = new VueRouter({
