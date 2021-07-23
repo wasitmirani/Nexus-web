@@ -14,10 +14,11 @@
        <!-- Scripts -->
        <script src="{{ asset('js/app.js') }}" defer></script>
       <!-- Favicon -->
-      <link rel="shortcut icon" href="/backend/assets/images/favicon-1.ico">
+      <link rel="shortcut icon" href="{{asset('/backend/assets/images/favicon-1.ico')}}">
 
-      <link rel="stylesheet" href="/backend/assets/css/backend-plugin.min-1.css">
-      <link rel="stylesheet" href="/backend/assets/css/backend-1.css?v=1.0.0">  </head>
+      <link rel="stylesheet" href="{{asset('/backend/assets/css/backend-plugin.min-1.css')}}">
+      <link rel="stylesheet" href="{{asset('/backend/assets/css/backend-1.css?v=1.0.0')}}">
+    </head>
   <body class="  ">
     <!-- loader Start -->
     <div id="loading">
@@ -34,7 +35,7 @@
                <a href="index.html" class="header-logo">
                   <img src="/backend/assets/images/logo-1.png" class="img-fluid rounded-normal light-logo" alt="logo">
                   <img src="/backend/assets/images/logodemo/02-blue-1.png" class="img-fluid rounded-normal d-none sidebar-light-img" alt="logo">
-                  <span>Datum</span>
+                  <span>{{config('app.name')}}</span>
               </a>
               <div class="side-menu-bt-sidebar-1">
                       <svg xmlns="http://www.w3.org/2000/svg" class="text-light wrapper-menu" width="30" fill="none" viewbox="0 0 24 24" stroke="currentColor">
@@ -62,40 +63,38 @@
     <!-- Wrapper End-->
     </div>
 
-
     @include('layouts.backend.footer')
     <!-- Backend Bundle JavaScript -->
-    <script src="/backend/assets/js/backend-bundle.min-1.js"></script>
+    <script src="{{ asset('/backend/assets/js/backend-bundle.min-1.js')}}"></script>
     <!-- Chart Custom JavaScript -->
-    <script src="/backend/assets/js/customizer-1.js"></script>
+    <script src="{{ asset('/backend/assets/js/customizer-1.js')}}"></script>
 
-    <script src="/backend/assets/js/sidebar-1.js"></script>
+    <script src="{{ asset('/backend/assets/js/sidebar-1.js')}}"></script>
 
     <!-- Flextree Javascript-->
-    <script src="/backend/assets/js/flex-tree.min-1.js"></script>
-    <script src="/backend/assets/js/tree-1.js"></script>
+    <script src="{{ asset('/backend/assets/js/flex-tree.min-1.js')}}"></script>
+    <script src="{{ asset('/backend/assets/js/tree-1.js')}}"></script>
 
     <!-- Table Treeview JavaScript -->
-    <script src="/backend/assets/js/table-treeview-1.js"></script>
+    <script src="{{ asset('/backend/assets/js/table-treeview-1.js')}}"></script>
 
-    <!-- SweetAlert JavaScript -->
-    <script src="/backend/assets/js/sweetalert-1.js"></script>
+
 
     <!-- Vectoe Map JavaScript -->
-    <script src="/backend/assets/js/vector-map-custom-1.js"></script>
+    <script src="{{ asset('/backend/assets/js/vector-map-custom-1.js')}}"></script>
 
     <!-- Chart Custom JavaScript -->
-    <script src="/backend/assets/js/chart-custom-1.js"></script>
-    <script src="/backend/assets/js/charts/01-1.js"></script>
-    <script src="/backend/assets/js/charts/02-1.js"></script>
+    <script src="{{ asset('/backend/assets/js/chart-custom-1.js')}}"></script>
+    <script src="{{ asset('/backend/assets/js/charts/01-1.js')}}"></script>
+    <script src="{{ asset('/backend/assets/js/charts/02-1.js')}}"></script>
 
     <!-- slider JavaScript -->
-    <script src="/backend/assets/js/slider-1.js"></script>
+    <script src="{{ asset('/backend/assets/js/slider-1.js')}}"></script>
 
     <!-- Emoji picker -->
-    <script src="/backend/assets/vendor/emoji-picker-element/index-1.js" type="module"></script>
+    <script src="{{ asset('/backend/assets/vendor/emoji-picker-element/index-1.js')}}" type="module"></script>
 
 
     <!-- app JavaScript -->
-    <script src="/backend/assets/js/app-1.js"></script>  </body>
+    <script src="{{ asset('/backend/assets/js/app-1.js')}}"></script>  </body>
 </html>
