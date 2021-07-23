@@ -15,14 +15,33 @@ import VueProgressBar from 'vue-progressbar'
 
 
 
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
+Vue.use(VueProgressBar, {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '4px'
+})
 const app = new Vue({
     el: '#app',
     router,
+    created() {
+        this.$Progress.start()
+        this.$router.beforeEach((to, from, next) => {
+                //  does the page we want to go to have a meta.progress object
+                if (to.meta.progress !== undefined) {
+                    let meta = to.meta.progress
+                        // parse meta tags
+                    this.$Progress.parseMeta(meta)
+                }
+                //  start the progress bar
+                this.$Progress.start()
+                    //  continue to next page
+                next()
+            })
+            //  hook the progress bar to finish after we've finished moving router-view
+        this.$router.afterEach((to, from) => {
+            //  finish the progress bar
+            this.$Progress.finish()
+        })
+        this.$Progress.finish()
+    }
 });

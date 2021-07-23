@@ -3,20 +3,17 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-// function getRouteComponent(path_file) {
-//     return "./components/backend/" + path_file + "Component.vue";
-// }
 function setComponent(path_file) {
     const route_path = "./components/backend/" + path_file + "Component.vue";
     return import ("" + route_path);
 }
 
 const routes = [
-    { path: "*", component: () => setComponent("error/404") },
-    {
-        path: "/",
-        redirect: { path: '/seller/dashboard' }
-    },
+    // { path: "*", component: () => setComponent("error/404") },
+    // {
+    //     path: "/",
+    //     redirect: { path: '/seller/dashboard' }
+    // },
 ];
 
 const router = new VueRouter({
@@ -25,14 +22,4 @@ const router = new VueRouter({
     linkExactActiveClass: "exact-active" // short for `routes: routes`
 });
 
-router.beforeResolve((to, from, next) => {
-    // $('.page-loader-wrapper').fadeIn();
-
-    //
-    next();
-});
-
-router.afterEach((to, from) => {
-    // setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);
-});
 export default router;
