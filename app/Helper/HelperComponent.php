@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helpers;
+namespace App\Helper;
 
 class HelperComponent
 {
@@ -9,9 +9,9 @@ class HelperComponent
     {
         return [
             [
-                "heading" => "Dashboard",
+                "heading" => "Management",
                 "menu" => [
-                    "title" => 'Dashboards',
+                    "title" => 'User Management',
                     "icon" => "icon-rocket",
                     "color_code" => "",
                     "can" => "",
@@ -19,19 +19,19 @@ class HelperComponent
                     "sub_menu" => [
                         setSubMenu(
                             null,
-                            "Dashboard",
+                            "Users",
+                            "supervisor_account",
                             null,
                             null,
-                            null,
-                            "/dashboard",
+                            "/users",
                         ),
                         setSubMenu(
                             null,
-                            "Seller Dashboard",
+                            "Roles",
                             null,
                             null,
                             null,
-                            "/seller/dashboard",
+                            "/roles",
                         ),
                     ]
                 ]

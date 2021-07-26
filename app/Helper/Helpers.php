@@ -1,6 +1,6 @@
 <?php
 
-use App\Helpers\HelperComponent;
+use App\Helper\HelperComponent;
 
 
 function iconsImg($filename, $type)
@@ -28,7 +28,7 @@ function SingleImgUpload($request, $path)
 
 function sideBarMenu()
 {
-    return HelperComponent::sideBar();
+    return HelperComponent::SideBar();
 }
 function setSingleLink($title, $icon, $can = null, $v_can = null, $url = null, $v_route = null)
 {
