@@ -19,11 +19,12 @@ $sidebar=sideBarMenu();
         {{-- <a href="javascript:void(0)" class="has-arrow arrow-c"><i class="{{$menu['menu']['icon']}}"></i><span>{{$menu['menu']['title']}}</span></a> --}}
         <a href="#app{{$loop->iteration}}" class="collapsed svg-icon" data-toggle="collapse" aria-expanded="false">
             <i class="">
-                <svg class="svg-icon" width="18" id="iq-user-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                </svg>
+                <span class="material-icons">
+                    {{$menu['menu']['icon']}}
+                 </span>
             </i>
             <span class="">{{$menu['menu']['title']}}</span>
+
             <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon iq-arrow-right arrow-active" width="15" fill="none" viewbox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>

@@ -12,7 +12,7 @@ class HelperComponent
                 "heading" => "Management",
                 "menu" => [
                     "title" => 'User Management',
-                    "icon" => "icon-rocket",
+                    "icon" => "people",
                     "color_code" => "",
                     "can" => "",
                     "v-can" => "",
@@ -37,6 +37,29 @@ class HelperComponent
                 ]
 
             ],
+            [
+                "heading" => "Content",
+                "menu" => [
+                    "title" => 'App Management',
+                    "icon" => "mobile_friendly",
+                    "color_code" => "",
+                    "can" => "",
+                    "v-can" => "",
+                    "sub_menu" => [
+                        setSubMenu(
+                            null,
+                            "Articles",
+                            "article",
+                            null,
+                            null,
+                            "/articles",
+                        ),
+
+                    ]
+                ]
+
+            ],
+
         ];
         }
     }

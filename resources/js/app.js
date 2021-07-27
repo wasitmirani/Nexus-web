@@ -10,8 +10,11 @@ window.Vue = require('vue').default;
 import router from "./router";
 import VueProgressBar from 'vue-progressbar'
 import Vuesax from 'vuesax'
-
 import 'vuesax/dist/vuesax.css' //Vuesax styles
+import { VueEditor, Quill } from "vue2-editor";
+import Vue from "vue";
+
+
 Vue.use(Vuesax);
 
 const files = require.context('./', true, /\.vue$/i)

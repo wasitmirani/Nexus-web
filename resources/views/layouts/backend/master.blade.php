@@ -78,9 +78,14 @@
 
     <!-- Table Treeview JavaScript -->
     <script src="{{ asset('/backend/assets/js/table-treeview-1.js')}}"></script>
-
-
-
+    <script>
+   @auth
+        window.user = {!! json_encode(Auth::user(), true) !!};
+    @else
+        window.user = [];
+        window.Permissions = [];
+    @endauth
+</script>
     <!-- Vectoe Map JavaScript -->
     <script src="{{ asset('/backend/assets/js/vector-map-custom-1.js')}}"></script>
 

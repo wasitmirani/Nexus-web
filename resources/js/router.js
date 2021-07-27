@@ -15,6 +15,16 @@ const routes = [
         component: () => setComponent("home/Dashboard")
             // redirect: { path: '/' }
     },
+    {
+        path: "/articles",
+        component: () => setComponent("content/Article")
+            // redirect: { path: '/' }
+    },
+    {
+        path: "/new/article",
+        component: () => setComponent("content/CreateArticle")
+            // redirect: { path: '/' }
+    },
 ];
 
 const router = new VueRouter({
