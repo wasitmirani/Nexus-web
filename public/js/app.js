@@ -2753,10 +2753,10 @@ function setComponent(path_file) {
 var routes = [// { path: "*", component: () => setComponent("error/404") },
 {
   path: "/",
-  component: function component() {
-    return setComponent("home/Dashboard");
-  } // redirect: { path: '/' }
-
+  // component: () => setComponent("home/Dashboard")
+  redirect: {
+    path: '/articles'
+  }
 }, {
   path: "/articles",
   component: function component() {

@@ -12,8 +12,8 @@ const routes = [
     // { path: "*", component: () => setComponent("error/404") },
     {
         path: "/",
-        component: () => setComponent("home/Dashboard")
-            // redirect: { path: '/' }
+        // component: () => setComponent("home/Dashboard")
+        redirect: { path: '/articles' }
     },
     {
         path: "/articles",
