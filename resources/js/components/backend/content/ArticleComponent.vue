@@ -47,8 +47,9 @@
 
          <th scope="col">Title</th>
          <th scope="col">Status</th>
-          <th scope="col">Created By</th>
+
          <th scope="col">Description</th>
+               <th scope="col">Created By</th>
          <th scope="col">Created</th>
          <th scope="col">Action</th>
       </tr>
