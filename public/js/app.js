@@ -36619,39 +36619,35 @@ var render = function() {
             _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "table-responsive " }, [
-              _c(
-                "table",
-                { staticClass: "table  table-striped data-table mb-0" },
-                [
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.articles, function(item) {
-                      return _c("tr", { key: item.id }, [
-                        _c("th", { attrs: { scope: "row" } }, [
-                          _vm._v(_vm._s(item.title))
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(3, true),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("p", {
-                            domProps: { innerHTML: _vm._s(item.description) }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(item.user.name))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(" " + _vm._s(item.created_at))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("\n\n            #\n\n         ")])
-                      ])
-                    }),
-                    0
-                  )
-                ]
-              )
+              _c("table", { staticClass: "table  table-striped  mb-0" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.articles, function(item) {
+                    return _c("tr", { key: item.id }, [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v(_vm._s(item.title))
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3, true),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("p", {
+                          domProps: { innerHTML: _vm._s(item.description) }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(item.user.name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(item.created_at))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("\n\n            #\n\n         ")])
+                    ])
+                  }),
+                  0
+                )
+              ])
             ])
           ])
         ])
