@@ -70,7 +70,6 @@ export default {
 
                       setTimeout(() => {
                           this.$router.push('/articles');
-
                       }, 2000)
             });
         }
