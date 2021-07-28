@@ -5,7 +5,7 @@
                <div class="card">
                   <div class="card-header d-flex justify-content-between">
                      <div class="header-title">
-                        <h4 class="card-title" > {{ editmode ? "Update" : "Create" }} New Article</h4>
+                        <h4 class="card-title" > {{ editmode ? "Update" : "Create" }} New Blog</h4>
                      </div>
                   <div class="header-action">
 
@@ -15,11 +15,11 @@
                         <form v-on:submit.prevent="onSubmit">
                             <div class="row">
                                   <div class="form-group col-12">
-                            <label for="email"> Article Title:</label>
-                                <vs-input success type="text" required v-model="title" placeholder="Article Title" />
+                            <label for="email"> Blog Title:</label>
+                                <vs-input success type="text" required v-model="title" placeholder="Blog Title" />
                              </div>
                         <div class="form-group col-12">
-                            <label for="pwd"> Article Description:</label>
+                            <label for="pwd"> Blog Description:</label>
                              <vue-editor v-model="description" required></vue-editor>
                         </div>
 
@@ -29,7 +29,7 @@
                               <vs-button  size="large"  gradient :active="true" type="submit" v-else>
                             Update <i class="bx bx-home-alt"></i>
                             </vs-button>
-                            <vs-button  size="large"  color="danger" gradient :active="true" to="/articles" type="submit">
+                            <vs-button  size="large"  color="danger" gradient :active="true" to="/blogs" type="submit">
                                 Cancel  <i class="bx bx-home-alt"></i>
                             </vs-button>
                             </div>
@@ -52,17 +52,17 @@ export default {
                 title:"",
                 description:"",
                 editmode:false,
-                article:{},
+                blog:{},
         }
     },
     mounted(){
 
         if(this.$route.params.id){
             this.editmode=true;
-            axios.get('/article/get/'+this.$route.params.id).then((res)=>{
-                this.article=res.data.article;
-                this.title=this.article.title;
-                this.description=this.article.description;
+            axios.get('/blog/get/'+this.$route.params.id).then((res)=>{
+                this.blog=res.data.blog;
+                this.title=this.blog.title;
+                this.description=this.blog.description;
             });
         }
         else {
@@ -75,7 +75,7 @@ export default {
                 const noti = this.$vs.notification({
                     color,
                     position,
-                    title: type+' Article Success',
+                    title: type+' blog Success',
                     text: message,
                 });
                 },
@@ -84,20 +84,20 @@ export default {
             formdata.append("title",this.title);
             formdata.append("description",this.description);
             formdata.append("user_id",user.id);
-            let url="/article/post";
+            let url="/blog/post";
             if(this.editmode){
-            formdata.append("id",this.article.id);
-            url="/article/update";
+            formdata.append("id",this.blog.id);
+            url="/blog/update";
             }
             axios.post(url,formdata).then((res)=>{
                  if(this.editmode){
-                    this.openNotification('top-right', 'primary',"Update","This article has been updated");
+                    this.openNotification('top-right', 'primary',"Update","This blog has been updated");
                  }
                  else {
-                      this.openNotification('top-right', 'success',"New","This article has been created");
+                      this.openNotification('top-right', 'success',"New","This blog has been created");
                  }
                       setTimeout(() => {
-                          this.$router.push('/articles');
+                          this.$router.push('/blogs');
                       }, 2000)
             });
         }

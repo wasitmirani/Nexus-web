@@ -54,6 +54,14 @@ class HelperComponent
                             null,
                             "/articles",
                         ),
+                        setSubMenu(
+                            null,
+                            "Blogs",
+                            "feed",
+                            null,
+                            null,
+                            "/blogs",
+                        ),
 
                     ]
                 ]

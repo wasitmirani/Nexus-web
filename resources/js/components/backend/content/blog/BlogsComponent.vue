@@ -4,18 +4,18 @@
          <div class="col-lg-12">
             <div class="d-flex flex-wrap align-items-center justify-content-between my-schedule mb-4">
                <div class="d-flex align-items-center justify-content-between">
-                  <h4 class="font-weight-bold">All Articles</h4>
+                  <h4 class="font-weight-bold">All Blogs</h4>
                </div>
                <div class="create-workform">
                   <div class="d-flex flex-wrap align-items-center justify-content-between">
                      <div class="modal-product-search d-flex">
                         <form class="mr-3 position-relative">
                            <div class="form-group mb-0">
-                              <vs-input success v-model="query"   v-on:keyup="searchQuery"   placeholder="Search Article"/>
+                              <vs-input success v-model="query"   v-on:keyup="searchQuery"   placeholder="Search blogs"/>
                            </div>
                         </form>
-                        <vs-button gradient  to="/new/article" :active="true">
-                           Add Article
+                        <vs-button gradient  to="/new/blog" :active="true">
+                           Add Blog
                         </vs-button>
                      </div>
                   </div>
@@ -28,7 +28,7 @@
             <div class="card card-block card-stretch">
                <div class="card-body p-0">
                   <div class="d-flex justify-content-between align-items-center p-3">
-                     <h5 class="font-weight-bold">Articles List</h5>
+                     <h5 class="font-weight-bold">Blogs List</h5>
                   </div>
                   <div class="table-responsive ">
                      <table class="table  table-striped  mb-0">
@@ -43,7 +43,7 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <tr v-for="item in articles" :key="item.id">
+                           <tr v-for="item in blogs" :key="item.id">
                               <th scope="row">{{ item.title }}</th>
                               <td><span class="mt-2 badge badge-pill badge-success">Posted</span></td>
                               <td>
@@ -81,13 +81,13 @@
        },
        data(){
            return{
-               articles:{},
+               blogs:{},
                query:"",
                isloading:false,
            };
        },
        methods:{
-             searchQuery(){
+           searchQuery(){
                 setTimeout(() => {
                       this.getBlogs();
                     }, 1000)
@@ -95,7 +95,7 @@
             openLoading() {
                     const loading = this.$vs.loading()
                     this.isloading=true;
-                    this.articles={};
+                    this.blogs={};
                     setTimeout(() => {
                         loading.close()
                          this.isloading=false;
@@ -112,30 +112,30 @@
                             confirmButtonText: 'Yes, delete it!'
                             }).then((result) => {
                             if (result.isConfirmed) {
-                                axios.get('/article/delete/'+item.id).then((res)=>{
+                                axios.get('/blog/delete/'+item.id).then((res)=>{
                                             Swal.fire(
                                                 'Deleted!',
                                                 'Your file has been deleted.',
                                                 'success')
-                                                this.getArticles();
+                                                this.getBlogs();
 
                                 });
 
                             }
                             })
                 },
-               getArticles(){
+               getBlogs(){
                    this.openLoading();
-                   axios.get("/article/articles?query="+this.query).then((res)=>{
-                       this.articles=res.data.articles;
+                   axios.get("/blog/blogs?query="+this.query).then((res)=>{
+                       this.blogs=res.data.blogs;
                    });
                },
                edit(item){
-                this.$router.push('/update/article/'+item.id);
+                this.$router.push('/update/blog/'+item.id);
                }
        },
        mounted(){
-           this.getArticles();
+           this.getBlogs();
        }
    }
 </script>

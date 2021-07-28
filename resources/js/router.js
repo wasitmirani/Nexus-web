@@ -18,12 +18,28 @@ const routes = [
     {
         path: "/articles",
         component: () => setComponent("content/Article")
-            // redirect: { path: '/' }
+
     },
     {
         path: "/new/article",
         component: () => setComponent("content/CreateArticle")
-            // redirect: { path: '/' }
+    },
+    {
+        path: "/update/article/:id",
+        component: () => setComponent("content/CreateArticle")
+    },
+    {
+        path: "/blogs",
+        component: () => setComponent("content/blog/Blogs")
+
+    },
+    {
+        path: "/new/blog",
+        component: () => setComponent("content/blog/CreateBlog")
+    },
+    {
+        path: "/update/blog/:id",
+        component: () => setComponent("content/blog/CreateBlog")
     },
 ];
 

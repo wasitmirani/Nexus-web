@@ -15,8 +15,14 @@ class ArticleController extends Controller
     public function getArticles()
     {
         //
-        $articles=Article::latest()->with('user')->get();
+        $query=request('query');
+        $articles=Article::where('title', 'like', '%' . $query . '%')->latest()->with('user')->get();
         return response()->json(['articles'=>$articles]);
+    }
+
+    public function getArticle(Request $request){
+        $article=Article::where('id',$request->id)->first();
+        return response()->json(['article'=>$article]);
     }
 
     /**
@@ -27,12 +33,8 @@ class ArticleController extends Controller
     public function createArticle(Request $request)
     {
         $article=new Article();
-        $requestInput=[
-            'title'=>$request->title,
-            'description'=>$request->description,
-            'user_id'=>$request->user_id,
-        ];
-        $new_article=$article->postArticle($requestInput);
+
+        $new_article=$article->postArticle($request,'create');
         return response()->json($new_article);
     }
 
@@ -42,9 +44,11 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function updateArticle(Request $request)
     {
-        //
+        $article=new Article();
+        $update_article=$article->postArticle($request,'update');
+        return response()->json($update_article);
     }
 
     /**
@@ -53,8 +57,10 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function deleteArticle(Request $request)
     {
+
+        return Article::destroy($request->id);
         //
     }
 

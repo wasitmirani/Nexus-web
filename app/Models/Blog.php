@@ -2,29 +2,29 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Blog;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Article extends Model
+class Blog extends Model
 {
     use HasFactory;
-
     protected $guarded=[];
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function postArticle($request,$type="create"){
+    public function postBlog($request,$type="create"){
         $requestInput=[
             'title'=>$request->title,
             'description'=>$request->description,
             'user_id'=>$request->user_id,
         ];
         if($type=="update"){
-            return Article::where('id',$request->id)->update($requestInput);
+            return Blog::where('id',$request->id)->update($requestInput);
         }
         else {
-            return   Article::create($requestInput);
+            return   Blog::create($requestInput);
         }
 
 

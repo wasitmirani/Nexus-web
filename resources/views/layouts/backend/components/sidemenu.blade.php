@@ -31,7 +31,7 @@ $sidebar=sideBarMenu();
         </a>
         <ul  id="app{{$loop->iteration}}" class="submenu collapse" data-parent="#iq-sidebar-toggle">
             @foreach ($menu['menu']['sub_menu'] as $item)
-   		<li class=" sidebar-layout">
+   		<li :class="groupActive">
                    <router-link  to="{{$item['v-route']}}" >
                     <span class="material-icons">
                            {{$item['icon']}}

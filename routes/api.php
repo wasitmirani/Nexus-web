@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ArticleController;
 
 /*
@@ -23,4 +24,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('article')->group(function () {
     Route::get('/articles',[ArticleController::class,'getArticles']);
     Route::post('/post',[ArticleController::class,'createArticle']);
+    Route::get('/get/{id?}',[ArticleController::class,'getArticle']);
+    Route::post('/update',[ArticleController::class,'updateArticle']);
+    Route::get('/delete/{id?}',[ArticleController::class,'deleteArticle']);
+});
+
+
+
+Route::prefix('blog')->group(function () {
+    Route::get('/blogs',[BlogController::class,'getBlogs']);
+    Route::post('/post',[BlogController::class,'createBlog']);
+    Route::get('/get/{id?}',[BlogController::class,'getBlog']);
+    Route::post('/update',[BlogController::class,'updateBlog']);
+    Route::get('/delete/{id?}',[BlogController::class,'deleteBlog']);
 });

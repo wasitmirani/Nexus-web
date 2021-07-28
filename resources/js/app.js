@@ -13,13 +13,18 @@ import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css' //Vuesax styles
 import { VueEditor, Quill } from "vue2-editor";
 import Vue from "vue";
+import Swal from 'sweetalert2'
+import moment from 'moment';
 
+window.moment = moment;
 
 Vue.use(Vuesax);
 
-const files = require.context('./', true, /\.vue$/i)
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+
+window.Swal = Swal;
 
 
 Vue.use(VueProgressBar, {
@@ -27,9 +32,29 @@ Vue.use(VueProgressBar, {
     failedColor: 'red',
     height: '4px'
 })
+
+Vue.filter("timeformat", function(value) {
+    if (value) {
+        return moment
+            .utc(String(value))
+            .local()
+            .fromNow();
+    }
+});
 const app = new Vue({
     el: '#app',
     router,
+    methods: {
+        groupActive() {
+            if (this.$router.history.current.path) {
+                $('ul').removeClass("show");
+                $(this).children('ul').addClass('show');
+                return "active sidebar-layout";
+            } else {
+                return "sidebar-layout";
+            }
+        },
+    },
     created() {
         this.$Progress.start()
         this.$router.beforeEach((to, from, next) => {
