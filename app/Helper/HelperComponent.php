@@ -37,6 +37,7 @@ class HelperComponent
             //     ]
 
             // ],
+            
             [
                 "heading" => "Content",
                 "menu" => [
@@ -48,7 +49,7 @@ class HelperComponent
                     "sub_menu" => [
                         setSubMenu(
                             null,
-                            "Articles",
+                            "articles",
                             "article",
                             null,
                             null,
@@ -56,7 +57,7 @@ class HelperComponent
                         ),
                         setSubMenu(
                             null,
-                            "Blogs",
+                            "blogs",
                             "feed",
                             null,
                             null,

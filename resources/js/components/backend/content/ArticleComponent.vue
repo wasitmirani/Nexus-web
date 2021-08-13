@@ -14,7 +14,7 @@
                               <vs-input success v-model="query"   v-on:keyup="searchQuery"   placeholder="Search Article"/>
                            </div>
                         </form>
-                        <vs-button gradient  to="/new/article" :active="true">
+                        <vs-button gradient class="float-right"    to="/new/article" :active="true">
                            Add Article
                         </vs-button>
                      </div>
@@ -59,9 +59,9 @@
                                 </a>
                                 |
                                 <a role="button"  @click="delete_Item(item)">
-                                <span class="material-icons text-danger">
-                                delete
-                                </span>
+                                <i class="material-icons text-danger">
+
+                                </i>
                                 </a>
                               </td>
                            </tr>

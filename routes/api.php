@@ -38,3 +38,13 @@ Route::prefix('blog')->group(function () {
     Route::post('/update',[BlogController::class,'updateBlog']);
     Route::get('/delete/{id?}',[BlogController::class,'deleteBlog']);
 });
+
+
+
+
+Route::prefix('app')->group(function () {
+
+    Route::prefix('article')->group(function () {
+        Route::get('/articles',[ArticleController::class,'getArticles']);
+    });
+});
